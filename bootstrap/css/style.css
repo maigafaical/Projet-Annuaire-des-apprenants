@@ -1,0 +1,22 @@
+.log{
+    width: 10px;
+    height: 20px;
+}
+
+.img{
+    width: 30px;
+    height: 5px;
+}
+  
+  
+  
+  .card{
+    margin-top: 5px;
+  }
+
+  .class{
+    display: flex;
+  }
+.l{
+    width: 90px;
+}
