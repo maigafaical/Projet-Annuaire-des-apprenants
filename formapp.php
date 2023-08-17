@@ -9,58 +9,74 @@
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/apprenants.css">
-    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/apprenants.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/impression.css" media="print">
 </head>
+
 <body>
-    
-<?php include 'menu.php';?>
-                     
-                     </body>
-                     <form method="post" action="insertion_apprenant.php">
-        <div class="row mt-3">
+    <?php include 'menu.php';?>
+
+</body>
+<form method="post" action="insertion_apprenant.php">
+<section class="contenair p-2 bg-danger mt-3 m-3">       
+<div class="row mt-3">
            
-
-        <div class="col-5 m-3">
-            <input type="text" name="nom" class="form-control m-2" placeholder="nom">
-        </div>
-
-
                 <div class="row mt-3">
-                    <div class="col-5 m-3">
-                    <input type="adresse" name="prenom" class="form-control m-2 " placeholder="prenom">
+                    <div class="col-lg-6">
+                        <input type="text" name="nom" class="form-control" placeholder="nom">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" name="prenom" class="form-control" placeholder="prenom">
+                    </div>
                 </div>
 
-                <div class="col-5 m-3">
-                            <input type="text" name="adresse" class="form-control m-2" placeholder="adresse">
-                         </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-5 m-3">
-                                <input type="text" name="age" class="form-control m-2" placeholder="age">
-                            </div>
-                            <div class="col-5 m-3">
-                                <input type="email" name="email" class="form-control m-2" placeholder="email">
-                            </div>
-                            <div class="col-5 m-3">
-                                <input type="telephone" name="telephone" class="form-control m-2" placeholder="telephone">
-                            </div>
-                            <div class="col-5 m-3">
-                                <input type="telephone" name="id_tuteurs" class="form-control m-2" placeholder="id_tuteurs">
-                            </div>
-                            
-                        </div>
+                <div class="row mt-3">
+                    <div class="col-lg-6">
+                        <input type="text" name="age" class="form-control" placeholder="age">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="adresse" name="adresse" class="form-control" placeholder="adresse">
+                    </div>
+                </div>
 
-                    <div class="row">
-                        <div class="col-6 m-2">
-                                <div class="col-auto">
-                                        <button type="submit" class="btn btn-danger text-light mb-2">Ajouter</button>
-                                </div>
-                                
-                        </div>
-                </form>
-                    
-                                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-6">
+                        <input type="text" name="telephone" class="form-control" placeholder="telephone">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" name="email" class="form-control" placeholder="email">
+                    </div>
+                </div>
 
-                <?php include 'footer.php';?>
+                <div class="row mt-3">
+                    <div class="col-lg-6">
+                        <label class="text-danger" for="" required>tuteur</label>
+                        <?php              
+                            $bdd= new PDO('mysql:host=localhost;dbname=annuaire','root','');
+
+                            $reponse = $bdd->query('SELECT nom, prenom FROM tuteurs');
+                            ?>
+                            <select class="form-control"  name="tuteur">
+                                <option value="">tuteur...</option>
+                                <?php while ($d = $reponse->fetch()) { ?>
+
+                                <option><?= $d['nom'] ?> <?= $d['prenom'] ?></option>
+                                <?php } ?>
+                            </select>
+                    </div>
+                </div>
+    
+        <div class="row m-3">
+            <div class="col-6">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-dark text-light mb-2">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+</div>
+
+<?php include 'footer.php';?>

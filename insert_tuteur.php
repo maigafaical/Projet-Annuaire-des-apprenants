@@ -22,6 +22,6 @@ catch(Exception $e)
 
         $query->execute(array($nom,$prenom,$adresse,$email,$telephone,$genre));
 
-        header('location:formtuteur.php')
+        header('location:tuteurs.php')
          
 ?>

@@ -9,4 +9,3 @@ $bdd= new PDO('mysql:host=localhost;dbname=db_eln','root','');
 }
  return $bdd;
 }
-?>

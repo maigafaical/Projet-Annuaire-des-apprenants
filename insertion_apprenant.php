@@ -15,13 +15,13 @@ catch(Exception $e)
     $age = $_POST['age'];
     $email = $_POST['email'];
     $telephone = $_POST['telephone'];
-    $id_tuteurs = $_POST['id_tuteurs'];
+    $tuteur = $_POST['tuteur'];
           
              
           
-        $query = $db->prepare( 'INSERT INTO apprenants (nom,prenom,adresse,age,email,telephone,id_tuteurs) VALUES (?,?,?,?,?,?,?)');
+        $query = $db->prepare( 'INSERT INTO apprenants (nom,prenom,adresse,age,email,telephone,tuteur) VALUES (?,?,?,?,?,?,?)');
 
-        $query->execute(array($nom,$prenom,$adresse,$age,$email,$telephone,$id_tuteurs));
+        $query->execute(array($nom,$prenom,$adresse,$age,$email,$telephone,$tuteur));
 
         header('location:apprenant.php')
          
